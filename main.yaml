@@ -1,0 +1,12 @@
+name: Github Workflows
+
+jobs:
+  validations:
+    runs-on: ubuntu-latest
+    steps:
+      run: echo "Implement VALIDATIONS"
+
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Implement CI"

@@ -4,13 +4,9 @@ on:
   workflow_call:
 
 jobs:
-  validations:
+  springboot-gradle:
+    name: springboot-gradle
     runs-on: ubuntu-latest
     steps:
-      run: echo "Implement VALIDATIONS"
-
-  ci:
-    runs-on: ubuntu-latest
-    steps:
-      run: echo "Implement CI"
-      
+      - id: step1
+        run: echo "need to be implemented"

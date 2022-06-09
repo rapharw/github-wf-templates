@@ -1,16 +1,12 @@
-name: Github Workflows Angular with NPM
+name: Github Workflows Angular with Npm
 
 on:
   workflow_call:
 
 jobs:
-  validations:
+  angular-npm:
+    name: angular-npm
     runs-on: ubuntu-latest
     steps:
-      run: echo "Implement VALIDATIONS"
-
-  ci:
-    runs-on: ubuntu-latest
-    steps:
-      run: echo "Implement CI"
-      
+      - id: step1
+        run: echo "need to be implemented"

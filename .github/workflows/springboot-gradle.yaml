@@ -12,5 +12,5 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Implement CI"
+      run: echo "Implement CI"
       

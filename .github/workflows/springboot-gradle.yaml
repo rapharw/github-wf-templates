@@ -1,0 +1,16 @@
+name: Github Workflows Springboot with Gradle
+
+on:
+  workflow_call:
+
+jobs:
+  validations:
+    runs-on: ubuntu-latest
+    steps:
+      run: echo "Implement VALIDATIONS"
+
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Implement CI"
+      

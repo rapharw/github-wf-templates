@@ -1,4 +1,4 @@
-name: Github Workflows
+name: Github Workflows Angular with NPM
 
 on:
   workflow_call:

@@ -4,8 +4,7 @@ on:
   workflow_call:
 
 jobs:
-  springboot-gradle:
-    name: springboot-gradle
+  github-wf-springboot-gradle:
     runs-on: ubuntu-latest
     steps:
       - id: step1

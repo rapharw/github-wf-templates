@@ -6,7 +6,7 @@ on:
       APPLICATION_RUNTIME:
         description: 'Specify the core of the solution'
         required: true
-        type: choice
+        type: string
         options:
           - java-springboot
           - angular
@@ -14,7 +14,7 @@ on:
       BUILD_COMPILE:
         description: 'Specify the build tool of the solution'
         required: true
-        type: choice
+        type: string
         options:
           - gradle
           - npm

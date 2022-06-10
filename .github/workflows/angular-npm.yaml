@@ -1,0 +1,35 @@
+name: Github Workflows Angular with NPM
+
+on:
+  workflow_call:
+    inputs:
+      application-runtime:
+        description: 'Specify the core of the solution'
+        required: true
+        type: choice
+        options:
+          - java-springboot
+          - angular
+
+      build-compile:
+        description: 'Specify the build tool of the solution'
+        required: true
+        type: choice
+        options:
+          - gradle
+          - npm
+
+    # TODO implements security token to protect repository (between repositories) 
+    # secrets:
+    #   token:
+    #     required: true
+
+jobs:
+  github-wf-springboot-gradle:
+    runs-on: ubuntu-latest
+    # if:  ${{ github.event.inputs.print_tags == 'true' }} 
+    steps:
+      run: |
+        echo need to be implemented
+        echo ${{ github.event.inputs.application-runtime }}
+        echo ${{ github.event.inputs.build-compile }}

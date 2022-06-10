@@ -7,6 +7,7 @@ on:
         description: 'Specify the core of the solution'
         required: true
         type: choice
+        default: ''
         options:
           - java-springboot
           - angular
@@ -14,6 +15,7 @@ on:
       BUILD_COMPILE:
         description: 'Specify the build tool of the solution'
         required: true
+        default: ''
         type: choice
         options:
           - gradle

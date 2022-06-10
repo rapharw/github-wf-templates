@@ -29,4 +29,5 @@ jobs:
     runs-on: ubuntu-latest
     # if:  ${{ github.event.inputs.print_tags == 'true' }} 
     steps:
-      run: echo need to be implemented ${{ github.event.inputs.APPLICATION_RUNTIME }} with ${{ github.event.inputs.BUILD_COMPILE }}
+      - id: step1
+        run: echo need to be implemented ${{ github.event.inputs.APPLICATION_RUNTIME }} with ${{ github.event.inputs.BUILD_COMPILE }}

@@ -7,17 +7,11 @@ on:
         description: 'Specify the core of the solution'
         required: true
         type: string
-        options:
-          - java-springboot
-          - angular
 
       BUILD_COMPILE:
         description: 'Specify the build tool of the solution'
         required: true
         type: string
-        options:
-          - gradle
-          - npm
 
     # TODO implements security token to protect repository (between repositories) 
     # secrets:

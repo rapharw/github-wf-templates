@@ -3,7 +3,7 @@ name: Github Workflows Angular with NPM
 on:
   workflow_call:
     inputs:
-      application-runtime:
+      APPLICATION_RUNTIME:
         description: 'Specify the core of the solution'
         required: true
         type: choice
@@ -11,7 +11,7 @@ on:
           - java-springboot
           - angular
 
-      build-compile:
+      BUILD_COMPILE:
         description: 'Specify the build tool of the solution'
         required: true
         type: choice
@@ -31,5 +31,5 @@ jobs:
     steps:
       run: |
         echo need to be implemented
-        echo ${{ github.event.inputs.application-runtime }}
-        echo ${{ github.event.inputs.build-compile }}
+        echo ${{ github.event.inputs.APPLICATION_RUNTIME }}
+        echo ${{ github.event.inputs.BUILD_COMPILE }}

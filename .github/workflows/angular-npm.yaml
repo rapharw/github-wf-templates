@@ -2,7 +2,7 @@ name: Github Workflows Angular with NPM
 
 on:
   workflow_call:
-    inputs:
+    secrets:
       APPLICATION_RUNTIME:
         description: 'Specify the core of the solution'
         required: true
@@ -13,15 +13,10 @@ on:
         required: true
         type: string
 
-    # TODO implements security token to protect repository (between repositories) 
-    # secrets:
-    #   token:
-    #     required: true
-
 jobs:
   github-wf-springboot-gradle:
     runs-on: ubuntu-latest
     # if:  ${{ github.event.inputs.print_tags == 'true' }} 
     steps:
       - id: step1
-        run: echo need to be implemented ${{ github.event.inputs.APPLICATION_RUNTIME }} with ${{ github.event.inputs.BUILD_COMPILE }}
+        run: echo need to be implemented ${{ secrets.APPLICATION_RUNTIME }} with ${{ secrets.BUILD_COMPILE }}

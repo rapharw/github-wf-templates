@@ -2,16 +2,17 @@ name: Github Workflows Angular with NPM
 
 on:
   workflow_call:
-    secrets:
-      APPLICATION_RUNTIME:
-        description: 'Specify the core of the solution'
-        required: true
-        type: string
 
-      BUILD_COMPILE:
-        description: 'Specify the build tool of the solution'
-        required: true
-        type: string
+inputs:
+  APPLICATION_RUNTIME:
+    description: 'Specify the core of the solution'
+    required: true
+    type: string
+
+  BUILD_COMPILE:
+    description: 'Specify the build tool of the solution'
+    required: true
+    type: string
 
 jobs:
   github-wf-springboot-gradle:
@@ -19,4 +20,4 @@ jobs:
     # if:  ${{ github.event.inputs.print_tags == 'true' }} 
     steps:
       - id: step1
-        run: echo need to be implemented ${{ secrets.APPLICATION_RUNTIME }} with ${{ secrets.BUILD_COMPILE }}
+        run: echo need to be implemented ${{ inputs.APPLICATION_RUNTIME }} with ${{ inputs.BUILD_COMPILE }}

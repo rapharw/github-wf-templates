@@ -2,17 +2,16 @@ name: Github Workflows Angular with NPM
 
 on:
   workflow_call:
+    inputs:
+      APPLICATION_RUNTIME:
+        description: 'Specify the core of the solution'
+        required: true
+        type: string
 
-inputs:
-  APPLICATION_RUNTIME:
-    description: 'Specify the core of the solution'
-    required: true
-    type: string
-
-  BUILD_COMPILE:
-    description: 'Specify the build tool of the solution'
-    required: true
-    type: string
+      BUILD_COMPILE:
+        description: 'Specify the build tool of the solution'
+        required: true
+        type: string
 
 jobs:
   github-wf-springboot-gradle:

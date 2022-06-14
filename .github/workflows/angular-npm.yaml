@@ -2,21 +2,39 @@ name: Github Workflows Angular with NPM
 
 on:
   workflow_call:
-    inputs:
-      APPLICATION_RUNTIME:
-        description: 'Specify the core of the solution'
-        required: true
-        type: string
-
-      BUILD_COMPILE:
-        description: 'Specify the build tool of the solution'
-        required: true
-        type: string
 
 jobs:
-  github-wf-springboot-gradle:
+  github-wf-angular-npm:
     runs-on: ubuntu-latest
-    # if:  ${{ github.event.inputs.print_tags == 'true' }} 
     steps:
-      - id: step1
-        run: echo need to be implemented ${{ inputs.APPLICATION_RUNTIME }} with ${{ inputs.BUILD_COMPILE }}
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@master
+        with:
+          node-version: 16.15.1
+
+      - run: npm install --location=global @angular/cli@13.1.3
+
+      - run: npm install
+
+      - run: ng build
+
+      - run: ng test --no-watch --code-coverage
+
+      - name: Official SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v1.1.0
+        env:
+          SONAR_HOST_URL: ${{ secrets.SONARQUBE_HOST }}
+          SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
+
+      - name: SonarQube Quality Gate check
+        uses: sonarsource/sonarqube-quality-gate-action@master
+        timeout-minutes: 10
+        env:
+          SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: buildApp
+          path: ./dist/*/
+          if-no-files-found: error

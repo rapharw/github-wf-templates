@@ -18,4 +18,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: ci
-        uses: ./${{ inputs.APPLICATION_RUNTIME }}-${{ inputs.BUILD_COMPILE }}.yaml
+        uses: './${{ inputs.APPLICATION_RUNTIME }}-${{ inputs.BUILD_COMPILE }}.yaml'

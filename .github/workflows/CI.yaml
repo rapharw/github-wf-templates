@@ -17,6 +17,6 @@ jobs:
   github-wf-ci:
     runs-on: ubuntu-latest
     steps:
-      - id: ci
         # uses: ${{ inputs.APPLICATION_RUNTIME }}-${{ inputs.BUILD_COMPILE }}.yaml
-        uses: ./angular-npm.yaml
+        # uses: ./angular-npm.yaml
+      - uses: ./.github/workflows/angular-npm.yaml

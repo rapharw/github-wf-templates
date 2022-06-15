@@ -15,13 +15,13 @@ on:
         required: true
         type: string
 
+env:
+  ACTION_PATH: ${{ inputs.APPLICATION_RUNTIME }}-${{ inputs.BUILD_COMPILE }}/action.yaml
+
 jobs:
   github-wf-ci:
     runs-on: ubuntu-latest
-    env:
-      ACTION_PATH: ${{ inputs.APPLICATION_RUNTIME }}-${{ inputs.BUILD_COMPILE }}/action.yaml
-
     steps:
       - uses: actions/checkout@v2
       - run: echo ${{ env.ACTION_PATH }}
-      - uses: ./.github/actions/${{ env.ACTION_PATH }}
+      - uses: ./.github/actions/$ACTION_PATH

@@ -5,6 +5,7 @@ runs:
   steps:
     - uses: actions/checkout@v3
 
+
     - uses: actions/setup-node@master
       with:
         node-version: 16.15.1
@@ -13,6 +14,10 @@ runs:
         npm install --location=global @angular/cli@13.1.3
         npm install
         ng build
+      shell: bash
+
+    - run: |
+        echo ${{ toJSON(github) }}
       shell: bash
 
     # - run: ng test --no-watch --code-coverage

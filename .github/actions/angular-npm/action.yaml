@@ -1,7 +1,7 @@
 name: Github Workflows Angular with NPM
 
 runs:
-  using: composite
+  using: "composite"
   steps:
     - uses: actions/checkout@v3
 

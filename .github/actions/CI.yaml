@@ -15,6 +15,4 @@ on:
 
 jobs:
   github-wf-ci:
-      # uses: ${{ inputs.APPLICATION_RUNTIME }}-${{ inputs.BUILD_COMPILE }}.yaml
-      # uses: ./angular-npm.yaml
-    uses: ./.github/workflows/angular-npm.yaml
+    uses: ./.github/actions/${{ inputs.APPLICATION_RUNTIME }}-${{ inputs.BUILD_COMPILE }}/action.yaml

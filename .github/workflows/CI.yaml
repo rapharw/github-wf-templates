@@ -24,4 +24,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: echo ${{ env.ACTION_PATH }}
-      - uses: ./.github/actions/$ACTION_PATH
+      - uses: './.github/actions/${{ env.ACTION_PATH }}'

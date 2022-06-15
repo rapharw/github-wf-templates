@@ -33,9 +33,9 @@ jobs:
       
       # 's|process.env.API_URL|"'$API_URL'"|g'
 
-      - uses: ./.github/actions/"'$PATH'"
+      - uses: ./.github/actions/$PATH
         env:
-          PATH: ${{ inputs.APPLICATION_RUNTIME }}-${{ inputs.BUILD_COMPILE }}
+          PATH: 'angular-npm'
         
       # - uses: ./.github/actions/angular-npm
       #   if: ${{ inputs.APPLICATION_RUNTIME == 'angular' && inputs.BUILD_COMPILE == 'npm' }}

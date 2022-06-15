@@ -17,4 +17,8 @@ on:
 
 jobs:
   github-wf-ci:
-    uses: ../actions/${{ inputs.APPLICATION_RUNTIME }}-${{ inputs.BUILD_COMPILE }}/action.yaml
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Build
+        uses: ./.github/actions/${{ inputs.APPLICATION_RUNTIME }}-${{ inputs.BUILD_COMPILE }}/action.yaml

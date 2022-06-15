@@ -3,7 +3,13 @@ name: Github Workflows Angular with NPM
 runs:
   using: "composite"
   steps:
-    - uses: actions/checkout@v3
+
+    - run: | 
+        echo "ACTION ANGULAR-NPM"
+      shell: bash
+
+
+    # - uses: actions/checkout@v3
 
 
     # - uses: actions/setup-node@master
@@ -16,9 +22,9 @@ runs:
     #     ng build
     #   shell: bash
 
-    - run: |
-        echo ${{ toJSON(github) }}
-      shell: bash
+    # - run: |
+    #     echo ${{ toJSON(github) }}
+    #   shell: bash
 
     # - run: ng test --no-watch --code-coverage
 

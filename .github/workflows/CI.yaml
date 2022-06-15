@@ -30,6 +30,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+      - run: echo ${{ inputs.APPLICATION_RUNTIME }}-${{ inputs.BUILD_COMPILE }}
       - uses: ./.github/actions/angular-npm
         if: ${{ inputs.APPLICATION_RUNTIME == 'angular' && inputs.BUILD_COMPILE == 'npm' }}

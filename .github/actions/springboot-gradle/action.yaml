@@ -1,47 +1,58 @@
-name: Github Workflows Springboot with Gradle
+name: Github Workflows Spring Boot with Gradle
 
-on:
-  workflow_call:
+runs:
+  using: "composite"
+  steps:
 
-jobs:
-  github-wf-springboot-gradle:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+    - run: | 
+        echo "ACTION SPRINGBOOT-GRADLE"
+      shell: bash
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v2
-        with:
-          java-version: 17
-          distribution: 'adopt'
 
-      - name: Make gradlew executable
-        run: chmod +x ./gradlew
+# name: Github Workflows Springboot with Gradle
 
-      - name: Build
-        uses: gradle/gradle-build-action@v2.1.5
-        with:
-          arguments: bootJar
+# on:
+#   workflow_call:
 
-      - name: Test
-        uses: gradle/gradle-build-action@v2.1.5
-        with:
-          arguments: test
+# jobs:
+#   github-wf-springboot-gradle:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
 
-      - name: Official SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v1.1.0
-        env:
-          SONAR_HOST_URL: ${{ secrets.SONARQUBE_HOST }}
-          SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
+#       - name: Set up JDK 17
+#         uses: actions/setup-java@v2
+#         with:
+#           java-version: 17
+#           distribution: 'adopt'
 
-      - name: SonarQube Quality Gate check
-        uses: sonarsource/sonarqube-quality-gate-action@master
-        timeout-minutes: 10
-        env:
-          SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
+#       - name: Make gradlew executable
+#         run: chmod +x ./gradlew
 
-      - uses: actions/upload-artifact@v3
-        with:
-          name: buildApp
-          path: ./*/*/*.jar
-          if-no-files-found: error
+#       - name: Build
+#         uses: gradle/gradle-build-action@v2.1.5
+#         with:
+#           arguments: bootJar
+
+#       - name: Test
+#         uses: gradle/gradle-build-action@v2.1.5
+#         with:
+#           arguments: test
+
+#       - name: Official SonarQube Scan
+#         uses: SonarSource/sonarqube-scan-action@v1.1.0
+#         env:
+#           SONAR_HOST_URL: ${{ secrets.SONARQUBE_HOST }}
+#           SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
+
+#       - name: SonarQube Quality Gate check
+#         uses: sonarsource/sonarqube-quality-gate-action@master
+#         timeout-minutes: 10
+#         env:
+#           SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
+
+#       - uses: actions/upload-artifact@v3
+#         with:
+#           name: buildApp
+#           path: ./*/*/*.jar
+#           if-no-files-found: error

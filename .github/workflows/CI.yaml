@@ -30,9 +30,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      
+      # 's|process.env.API_URL|"'$API_URL'"|g'
 
-      - uses: ./.github/actions/angular-npm
-        if: ${{ inputs.APPLICATION_RUNTIME == 'angular' && inputs.BUILD_COMPILE == 'npm' }}
+      - uses: ./.github/actions/$PATH
+        env:
+          PATH: ${{ inputs.APPLICATION_RUNTIME }}-${{ inputs.BUILD_COMPILE }}
+        
+      # - uses: ./.github/actions/angular-npm
+      #   if: ${{ inputs.APPLICATION_RUNTIME == 'angular' && inputs.BUILD_COMPILE == 'npm' }}
 
-      - uses: ./.github/actions/springboot-gradle
-        if: ${{ inputs.APPLICATION_RUNTIME == 'springboot' && inputs.BUILD_COMPILE == 'gradle' }}
+      # - uses: ./.github/actions/springboot-gradle
+      #   if: ${{ inputs.APPLICATION_RUNTIME == 'springboot' && inputs.BUILD_COMPILE == 'gradle' }}

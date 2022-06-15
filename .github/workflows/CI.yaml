@@ -18,10 +18,10 @@ on:
 jobs:
   github-wf-ci:
     runs-on: ubuntu-latest
-    inputs:
+    env:
       ACTION_PATH: ${{ inputs.APPLICATION_RUNTIME }}-${{ inputs.BUILD_COMPILE }}/action.yaml
 
     steps:
       - uses: actions/checkout@v2
-      - run: echo ${{ inputs.ACTION_PATH }}
-      - uses: ./.github/actions/${{ inputs.ACTION_PATH }}
+      - run: echo ${{ env.ACTION_PATH }}
+      - uses: ./.github/actions/${{ env.ACTION_PATH }}

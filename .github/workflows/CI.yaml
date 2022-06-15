@@ -2,7 +2,17 @@ name: Github Workflows CI Action
 
 on:
   workflow_dispatch:
+    inputs:
+      APPLICATION_RUNTIME:
+        description: 'Specify the core of the solution'
+        required: true
+        type: string
 
+      BUILD_COMPILE:
+        description: 'Specify the build tool of the solution'
+        required: true
+        type: string
+        
   workflow_call:
     inputs:
       APPLICATION_RUNTIME:

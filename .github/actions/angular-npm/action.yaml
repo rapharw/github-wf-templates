@@ -7,10 +7,10 @@ runs:
 
     - run: ls
       shell: bash
-      
-    - uses: actions/setup-node@master
-      with:
-        node-version: 16.15.1
+
+    # - uses: actions/setup-node@master
+    #   with:
+    #     node-version: 16.15.1
 
     # - run: | 
     #     npm install --location=global @angular/cli@13.1.3

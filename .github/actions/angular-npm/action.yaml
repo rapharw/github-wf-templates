@@ -3,18 +3,14 @@ name: Github Workflows Angular with NPM
 runs:
   using: "composite"
   steps:
+    - uses: actions/checkout@v3
 
-    - run: | 
-        echo "ACTION ANGULAR-NPM"
+    - run: ls
       shell: bash
-
-
-    # - uses: actions/checkout@v3
-
-
-    # - uses: actions/setup-node@master
-    #   with:
-    #     node-version: 16.15.1
+      
+    - uses: actions/setup-node@master
+      with:
+        node-version: 16.15.1
 
     # - run: | 
     #     npm install --location=global @angular/cli@13.1.3

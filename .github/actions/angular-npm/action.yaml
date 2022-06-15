@@ -3,7 +3,7 @@ name: Github Workflows Angular with NPM
 runs:
   using: composite
   steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - uses: actions/setup-node@master
       with:
@@ -15,22 +15,22 @@ runs:
 
     - run: ng build
 
-    - run: ng test --no-watch --code-coverage
+    # - run: ng test --no-watch --code-coverage
 
-    - name: Official SonarQube Scan
-      uses: SonarSource/sonarqube-scan-action@v1.1.0
-      env:
-        SONAR_HOST_URL: ${{ secrets.SONARQUBE_HOST }}
-        SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
+    # - name: Official SonarQube Scan
+    #   uses: SonarSource/sonarqube-scan-action@v1.1.0
+    #   env:
+    #     SONAR_HOST_URL: ${{ secrets.SONARQUBE_HOST }}
+    #     SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
 
-    - name: SonarQube Quality Gate check
-      uses: sonarsource/sonarqube-quality-gate-action@master
-      timeout-minutes: 10
-      env:
-        SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
+    # - name: SonarQube Quality Gate check
+    #   uses: sonarsource/sonarqube-quality-gate-action@master
+    #   timeout-minutes: 10
+    #   env:
+    #     SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
 
-    - uses: actions/upload-artifact@v3
-      with:
-        name: buildApp
-        path: ./dist/*/
-        if-no-files-found: error
+    # - uses: actions/upload-artifact@v3
+    #   with:
+    #     name: buildApp
+    #     path: ./dist/*/
+    #     if-no-files-found: error

@@ -20,6 +20,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: echo ''./.github/actions/${{ inputs.APPLICATION_RUNTIME }}-${{ inputs.BUILD_COMPILE }}/action.yaml'
+      - uses: ./.github/actions/${{ inputs.APPLICATION_RUNTIME }}-${{ inputs.BUILD_COMPILE }}/action.yaml
       # - name: Build
       #   uses: ./.github/actions/${{ inputs.APPLICATION_RUNTIME }}-${{ inputs.BUILD_COMPILE }}/action.yaml

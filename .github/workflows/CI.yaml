@@ -1,6 +1,8 @@
 name: Github Workflows CI Action
 
 on:
+  workflow_dispatch:
+
   workflow_call:
     inputs:
       APPLICATION_RUNTIME:
@@ -15,4 +17,4 @@ on:
 
 jobs:
   github-wf-ci:
-    uses: ./.github/actions/${{ inputs.APPLICATION_RUNTIME }}-${{ inputs.BUILD_COMPILE }}/action.yaml
+    uses: ../actions/${{ inputs.APPLICATION_RUNTIME }}-${{ inputs.BUILD_COMPILE }}/action.yaml

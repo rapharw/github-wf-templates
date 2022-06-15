@@ -12,7 +12,7 @@ on:
         description: 'Specify the build tool of the solution'
         required: true
         type: string
-        
+
   workflow_call:
     inputs:
       APPLICATION_RUNTIME:
@@ -30,6 +30,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - name: BuildSolution
-        uses: ./.github/actions/${{ inputs.APPLICATION_RUNTIME }}-${{ inputs.BUILD_COMPILE }}
+      - run: echo ${{ inputs.APPLICATION_RUNTIME }}-${{ inputs.BUILD_COMPILE }}
+      # - name: BuildSolution
+      #   uses: ./.github/actions/${{ inputs.APPLICATION_RUNTIME }}-${{ inputs.BUILD_COMPILE }}

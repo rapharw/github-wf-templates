@@ -3,7 +3,6 @@ name: Github Workflows Spring Boot with Gradle
 runs:
   using: "composite"
   steps:
-
     - run: | 
         echo "ACTION SPRINGBOOT-GRADLE"
       shell: bash

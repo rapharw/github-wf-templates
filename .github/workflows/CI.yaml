@@ -16,7 +16,7 @@ on:
         type: string
 
 env:
-  ACTION_PATH: ${{ inputs.APPLICATION_RUNTIME }}-${{ inputs.BUILD_COMPILE }}/action.yaml
+  ACTION_PATH: ${{ inputs.APPLICATION_RUNTIME }}-${{ inputs.BUILD_COMPILE }}
 
 jobs:
   github-wf-ci:
@@ -25,5 +25,3 @@ jobs:
       - uses: actions/checkout@v2
 
       - uses: ./.github/actions/${{ env.ACTION_PATH }}
-        env:
-          ACTION_PATH: ${{ env.ACTION_PATH }}

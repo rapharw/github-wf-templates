@@ -4,24 +4,28 @@ on:
   workflow_dispatch:
     inputs:
       APPLICATION_RUNTIME:
-        description: 'Specify the core of the solution'
+        description: 'Specify the technology of the solution'
         required: true
-        type: string
+        type: choice
+        options:
+        - angular
+        - springboot
 
       BUILD_COMPILE:
         description: 'Specify the build tool of the solution'
         required: true
-        type: string
+        type: choice
+        options:
+        - npm
+        - gradle
 
   workflow_call:
     inputs:
       APPLICATION_RUNTIME:
-        description: 'Specify the core of the solution'
         required: true
         type: string
 
       BUILD_COMPILE:
-        description: 'Specify the build tool of the solution'
         required: true
         type: string
 
@@ -29,7 +33,6 @@ jobs:
   github-wf-ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       
       - uses: ./.github/actions/angular-npm
         if: ${{ inputs.APPLICATION_RUNTIME == 'angular' && inputs.BUILD_COMPILE == 'npm' }}

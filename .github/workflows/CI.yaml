@@ -38,7 +38,7 @@ jobs:
       - run: ls
         shell: bash
 
-      - uses: ./.github/actions/angular-npm
+      - uses: rapharw/github-wf-templates/.github/actions/angular-npm
         if: ${{ inputs.APPLICATION_RUNTIME == 'angular' && inputs.BUILD_COMPILE == 'npm' }}
 
       - uses: ./.github/actions/springboot-gradle
